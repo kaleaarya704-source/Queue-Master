@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "../styles/ServiceModern.scss";
@@ -9,6 +7,7 @@ const DoctorList = () => {
   const navigate = useNavigate();
   const { hospitalId } = useParams();
   const [selectedDoctor, setSelectedDoctor] = useState(null);
+  const [search, setSearch] = useState("");
 
   const doctors = [
     {
@@ -49,6 +48,13 @@ const DoctorList = () => {
     },
   ];
 
+  // Filter doctors by name or specialization
+  const filteredDoctors = doctors.filter(
+    (d) =>
+      d.name.toLowerCase().includes(search.toLowerCase()) ||
+      d.specialization.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="service-page">
       {/* NAVBAR */}
@@ -64,11 +70,21 @@ const DoctorList = () => {
             <p>{decodeURIComponent(hospitalId)}</p>
           </div>
         </div>
+
+        {/* Search Bar */}
+        <div className="navbar-search">
+          <input
+            type="text"
+            placeholder="Search doctor or specialization..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
       </div>
 
       {/* DOCTOR BOARD */}
       <div className="service-table">
-        {doctors.map((d) => (
+        {filteredDoctors.map((d) => (
           <div key={d.id} className="service-row doctor-board">
             {/* LEFT SECTION */}
             <div className="doctor-left">
