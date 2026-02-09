@@ -1,18 +1,24 @@
-
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/ServiceModern.scss";
 
 const Hospitals = () => {
   const navigate = useNavigate();
+  const [search, setSearch] = useState("");
 
   const hospitals = [
-    { name: "Apollo Hospital", status: "Open", time: "24×7 Emergency" },
-    { name: "City Care Hospital", status: "Open", time: "9:00 AM – 8:00 PM" },
-    { name: "LifeLine Multispeciality", status: "Limited", time: "10:00 AM – 6:00 PM" },
-    { name: "Green Cross Clinic", status: "Busy", time: "11:00 AM – 5:00 PM" },
-    { name: "Government Civil Hospital", status: "Open", time: "24×7" },
+    { name: "Apollo Hospital", status: "Open", time: "24×7 Emergency", location: "Pune, Sadashiv Peth" },
+    { name: "City Care Hospital", status: "Open", time: "9:00 AM – 8:00 PM", location: "Pune, Baner" },
+    { name: "LifeLine Multispeciality", status: "Limited", time: "10:00 AM – 6:00 PM", location: "Pune, Katraj" },
+    { name: "Green Cross Clinic", status: "Busy", time: "11:00 AM – 5:00 PM", location: "Pune, Swargate" },
+    { name: "Government Civil Hospital", status: "Open", time: "24×7", location: "Aurangabad, shivaji chowk,Maharashtra" },
   ];
+
+  const filteredHospitals = hospitals.filter(
+    (h) =>
+      h.name.toLowerCase().includes(search.toLowerCase()) ||
+      h.location.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="service-page">
@@ -28,10 +34,20 @@ const Hospitals = () => {
             <p>Select a hospital to continue</p>
           </div>
         </div>
+
+        {/* Search Bar Inside Navbar */}
+        <div className="navbar-search">
+          <input
+            type="text"
+            placeholder="Search hospital or location..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
       </div>
 
       <div className="service-table">
-        {hospitals.map((h) => (
+        {filteredHospitals.map((h) => (
           <div
             key={h.name}
             className="service-row"
@@ -43,6 +59,7 @@ const Hospitals = () => {
             <div>
               <div className="service-name">{h.name}</div>
               <div className="service-meta">⏱ {h.time}</div>
+              <div className="service-location">📍 {h.location}</div>
             </div>
 
             <div className={`status ${h.status.toLowerCase()}`}>
