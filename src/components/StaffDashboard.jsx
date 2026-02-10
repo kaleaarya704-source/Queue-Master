@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "../styles/StaffDashboard.scss";
+import { useNavigate } from "react-router-dom";
+
 
 /* Icons */
 import {
@@ -28,6 +30,8 @@ const StaffDashboard = () => {
     { id: "A-104", service: "General Inquiry" },
     { id: "A-105", service: "Consultation" },
   ];
+
+  const navigate = useNavigate();
 
   return (
     <div className="admin-wrapper staff-view">
@@ -62,7 +66,7 @@ const StaffDashboard = () => {
         </div>
         <ul className="nav-links">
           <li className="active"><FiActivity /> My Station</li>
-          <li><FiUsers /> View Queue</li>
+          <li onClick={() => navigate("/view-queue")}><FiUsers /> View Queue</li>
           <li className="logout"><FiLogOut /> Logout</li>
         </ul>
       </aside>
