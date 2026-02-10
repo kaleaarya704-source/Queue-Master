@@ -15,7 +15,5 @@ A Queue Management System designed to organize customer flow and improve service
 
 ## Author
 **Abhijeet Wargad**
-
 **Varad Gavali**
-
 **Aarya Kale**
