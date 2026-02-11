@@ -20,7 +20,8 @@ import EstimatedWait from "./components/EstimatedWait";
 import Appointments from "./components/Appointments";
 import About from "./components/About";
 import ViewQueue from "./components/ViewQueue";
-
+import ServicesAndQueues from "./components/ServicesAndQueues";
+import ManageCounters from "./components/ManageCounter";  
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -128,6 +129,8 @@ function App() {
 <Route path="/appointments" element={<Appointments />} />
   <Route path="/about" element={<About />} />
 <Route path="/view-queue" element={<ViewQueue />} />
+<Route path="/services-and-queues" element={<ServicesAndQueues />} />
+<Route path="/manage-counters" element={<ManageCounters />} />
 
       </Routes>
     </Router>
