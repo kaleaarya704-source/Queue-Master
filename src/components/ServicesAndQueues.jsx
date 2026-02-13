@@ -50,7 +50,6 @@ const ServicesAndQueues = () => {
     <div className="services-wrapper">
 
       {/* ===== PROFESSIONAL HEADER BAR ===== */}
-      {/* ===== PROFESSIONAL HEADER BAR ===== */}
 <div className="services-topbar">
 
   {/* LEFT SIDE */}
