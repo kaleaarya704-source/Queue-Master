@@ -12,7 +12,7 @@ const Welcome = () => {
         <div className="nav-links">
           <a href="#">Home</a>
           <a href="#features">Features</a>
-          <a href="#about">About</a>
+          <Link to="/about" className="nav-link">About</Link>
           <Link to="/login" className="nav-btn">Get Started</Link>
         </div>
       </nav>
