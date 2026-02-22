@@ -67,9 +67,6 @@ const UserDashboard = () => {
         </div>
 
         <div className="nav-right">
-          <button className="about-btn" onClick={handleAbout}>
-            About
-          </button>
           <FiBell className="nav-icon" />
           <img src={userImg} alt="user" />
           <span>Abhi</span>
