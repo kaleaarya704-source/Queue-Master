@@ -20,7 +20,12 @@ a {
 /* ============================= */
 /* NAVBAR */
 /* ============================= */
-
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #2359d6;
+  margin-left:2%;
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -95,7 +100,7 @@ a {
 
   p {
     font-size: 18px;
-    color: #475569;
+    color: hsl(216, 13%, 85%);
     margin-bottom: 40px;
     line-height: 1.7;
   }
@@ -108,7 +113,7 @@ a {
 
 .primary-btn {
   padding: 15px 32px;
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  background: linear-gradient(135deg, #e77912, #97b4e2);
   border-radius: 8px;
   font-weight: 600;
   color: white;
