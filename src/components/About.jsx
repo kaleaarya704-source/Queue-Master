@@ -16,7 +16,7 @@ const About = () => {
     <div className="about-page">
       {/* ===== NAV BAR ===== */}
       <div className="about-navbar">
-        <h2>QueueMaster</h2>
+        <h2>Queue Master</h2>
         <button onClick={() => navigate(-1)}>← Back</button>
       </div>
 
